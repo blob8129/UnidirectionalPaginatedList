@@ -13,6 +13,9 @@
 		CE095F992226984E00C1620A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE095F982226984E00C1620A /* Assets.xcassets */; };
 		CE095F9C2226984E00C1620A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE095F9A2226984E00C1620A /* LaunchScreen.storyboard */; };
 		CE095FA72226984E00C1620A /* TestAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE095FA62226984E00C1620A /* TestAssignmentTests.swift */; };
+		CE095FB3222699DB00C1620A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE095FB2222699DB00C1620A /* NetworkService.swift */; };
+		CE095FB5222699E300C1620A /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE095FB4222699E300C1620A /* NetworkingTests.swift */; };
+		CE095FB7222699EF00C1620A /* NetworkServiceMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE095FB6222699EF00C1620A /* NetworkServiceMocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		CE095FA22226984E00C1620A /* TestAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE095FA62226984E00C1620A /* TestAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssignmentTests.swift; sourceTree = "<group>"; };
 		CE095FA82226984E00C1620A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE095FB2222699DB00C1620A /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		CE095FB4222699E300C1620A /* NetworkingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
+		CE095FB6222699EF00C1620A /* NetworkServiceMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceMocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		CE095F902226984D00C1620A /* TestAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				CE095FB1222699BD00C1620A /* Services */,
 				CE095F912226984D00C1620A /* AppDelegate.swift */,
 				CE095F932226984D00C1620A /* ViewController.swift */,
 				CE095F952226984D00C1620A /* Main.storyboard */,
@@ -90,10 +97,20 @@
 		CE095FA52226984E00C1620A /* TestAssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE095FB6222699EF00C1620A /* NetworkServiceMocks.swift */,
+				CE095FB4222699E300C1620A /* NetworkingTests.swift */,
 				CE095FA62226984E00C1620A /* TestAssignmentTests.swift */,
 				CE095FA82226984E00C1620A /* Info.plist */,
 			);
 			path = TestAssignmentTests;
+			sourceTree = "<group>";
+		};
+		CE095FB1222699BD00C1620A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE095FB2222699DB00C1620A /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE095F942226984D00C1620A /* ViewController.swift in Sources */,
+				CE095FB3222699DB00C1620A /* NetworkService.swift in Sources */,
 				CE095F922226984D00C1620A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE095FA72226984E00C1620A /* TestAssignmentTests.swift in Sources */,
+				CE095FB5222699E300C1620A /* NetworkingTests.swift in Sources */,
+				CE095FB7222699EF00C1620A /* NetworkServiceMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

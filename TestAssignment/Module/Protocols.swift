@@ -9,6 +9,7 @@ import Foundation
 
 protocol InteractorInput {
     func start()
+    func willDisplayLast(slug: String)
 }
 
 protocol ViewInput: class {
@@ -17,9 +18,6 @@ protocol ViewInput: class {
 
 enum ViewState: Equatable {
     case loaded([Entity])
+    case loadedNext([Entity])
     case networkError
-}
-
-protocol DateProvider {
-    var date: Date { get }
 }

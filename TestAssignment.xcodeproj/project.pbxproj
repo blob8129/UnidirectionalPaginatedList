@@ -93,9 +93,9 @@
 		CE095F902226984D00C1620A /* TestAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				CE095FCC22269E9200C1620A /* Application */,
 				CE095FB1222699BD00C1620A /* Services */,
 				CE095FBC22269B6400C1620A /* Module */,
-				CE095F912226984D00C1620A /* AppDelegate.swift */,
 				CE095F982226984E00C1620A /* Assets.xcassets */,
 				CE095F9A2226984E00C1620A /* LaunchScreen.storyboard */,
 				CE095F9D2226984E00C1620A /* Info.plist */,
@@ -131,17 +131,17 @@
 				CE095FBE22269B6400C1620A /* Builder.swift */,
 				CE095FBF22269B6400C1620A /* Entity.swift */,
 				CE095FC022269B6400C1620A /* Interactor.swift */,
-				CE095FC222269B6400C1620A /* Views */,
+				CE095FBD22269B6400C1620A /* ViewController.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
 		};
-		CE095FC222269B6400C1620A /* Views */ = {
+		CE095FCC22269E9200C1620A /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				CE095FBD22269B6400C1620A /* ViewController.swift */,
+				CE095F912226984D00C1620A /* AppDelegate.swift */,
 			);
-			path = Views;
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +194,11 @@
 				TargetAttributes = {
 					CE095F8D2226984D00C1620A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 					CE095FA12226984E00C1620A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 						TestTargetID = CE095F8D2226984D00C1620A;
 					};
 				};
@@ -416,7 +418,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blo8129.TestAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -433,7 +435,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blo8129.TestAssignment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -452,7 +454,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blo8129.TestAssignmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestAssignment.app/TestAssignment";
 			};
@@ -472,7 +474,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blo8129.TestAssignmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestAssignment.app/TestAssignment";
 			};

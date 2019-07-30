@@ -5,7 +5,6 @@
 //  Created by Andrey Volobuev on 12/7/18.
 //  Copyright © 2018 blob8129. All rights reserved.
 //
-
 import Foundation
 
 final class Interactor {
@@ -14,6 +13,7 @@ final class Interactor {
     private let baseUrl: URL
     private var currentReport: Entity?
     private let decoder: JSONDecoder
+    private var loadedSlugs = Set<String>()
     
     init(networkService: NetworkServiceProtocol,
          view: ViewInput?,
@@ -25,28 +25,40 @@ final class Interactor {
         self.decoder = decoder
     }
     
-    private func load() {
-        let url = URLBuilder(url: baseUrl).with(queries: [
-            "appid": "b6907d289e10d714a6e88b30761fae22"
-        ]).url
+    private func load(sucess: @escaping ([Entity]) -> Void) {
+        let url = URLBuilder(url: baseUrl)
+            .with(paths: "58", "users", "peter-holm", "followers")
+            .url
+        load(at: url, sucess: sucess)
+    }
+
+    private func loadNext(slug: String, sucess: @escaping ([Entity]) -> Void) {
+        let url = URLBuilder(url: baseUrl)
+            .with(paths: "58", "users", "peter-holm", "followers")
+            .with(queries: ["current_follow_slug": slug])
+            .url
+        load(at: url, sucess: sucess)
+    }
+
+    private func load(at url: URL, sucess: @escaping ([Entity]) -> Void) {
         print("[INFO] \(url)")
-        networkService.loadData(at: url) { [weak self] result in
+        networkService.loadData(at: url) { result in
             switch result {
             case .success(let data):
                 do {
-               //     let weather = try self?.decoder.decode(WeatherReport.self, from: data)
+                    let users = try self.decoder.decode(EntityContainer.self, from: data).response
                     DispatchQueue.main.async {
-                 //       self?.view?.render(state: .loadedFromTheNetwork(currentReport))
+                        sucess(users)
                     }
                 } catch let error {
                     print("[ERROR]❗️ \(error)")
                     DispatchQueue.main.async {
-                        self?.view?.render(state: .networkError)
+                        self.view?.render(state: .networkError)
                     }
                 }
             case .error(_):
                 DispatchQueue.main.async {
-                    self?.view?.render(state: .networkError)
+                    self.view?.render(state: .networkError)
 
                 }
             }
@@ -56,7 +68,17 @@ final class Interactor {
 
 
 extension Interactor: InteractorInput {
-    func start() {
+    func willDisplayLast(slug: String) {
+        guard loadedSlugs.contains(slug) == false else { return }
+        loadedSlugs.insert(slug)
+        loadNext(slug: slug) { users in
+            self.view?.render(state: .loadedNext(users))
+        }
+    }
 
+    func start() {
+        load() { users in
+            self.view?.render(state: .loaded(users))
+        }
     }
 }

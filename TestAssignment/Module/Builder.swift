@@ -9,7 +9,7 @@ import UIKit
 
 final class Builder {
     func build() -> UIViewController {
-        let baseUrl = URL(string: "https://baseurl.com")!
+        let baseUrl = URL(string: "https://api.tonsser.com")!
         let networkService = NetworkService()
         let viewController = ViewController()
         let decoder = JSONDecoder()
